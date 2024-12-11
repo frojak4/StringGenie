@@ -26,8 +26,8 @@ const InputArea = () => {
 
     const [level, setLevel] = useState('Beginner')
     const [chords, setChords] = useState<string[]>([])
-    const [decade, setDecade] = useState<string>()
-    const [genre, setGenre] = useState<string>()
+    const [decade, setDecade] = useState<string>("")
+    const [genre, setGenre] = useState<string>("")
 
 
     const [modalOpen, setModalOpen] = useState(false)
@@ -124,7 +124,7 @@ const InputArea = () => {
             <Button disabled={isPending} variant="default">{isPending ? 'Loading...' : 'Submit'}</Button>
             <Dialog open={modalOpen} onOpenChange={setModalOpen}>
                 <DialogContent>
-                    <DialogTitle>Songs:</DialogTitle>
+                    <DialogTitle>Suggested songs:</DialogTitle>
 
                     {songs.map((song, i) => {
                         return <Button variant="outline" key={i}>{song.song} by {song.artist}</Button>

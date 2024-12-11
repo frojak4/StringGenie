@@ -15,9 +15,6 @@ export const FetchSongs = async (currentState: undefined, formData: FormData) =>
     const decade = formData.get('decade')
     const chordsString = chords.join(', ');
 
-    console.log(level)
-    console.log(chordsString)
-
     const requestBody = {
         chords: chordsString,
         level: level,
@@ -43,12 +40,10 @@ export const FetchSongs = async (currentState: undefined, formData: FormData) =>
             body: JSON.stringify(requestBody)
         })
         const data = await response.json();
-        console.log(data)
 
         return { success: true, data: { songs: data.songs } }
     } catch (error) {
-        console.log(error.message)
-        return { success: false, error: 'Please input at least 3 chords' }
+        return { success: false, error: error.message }
     }
 
 }
