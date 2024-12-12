@@ -86,18 +86,18 @@ const InputArea = () => {
             </section>
 
 
-            <h3 className="text-accent-foreground text-xl">Level: </h3>
+            <h3 className="text-accent-foreground text-xl p-1 pt-4">Level: </h3>
             <input type="hidden" value={level} name="level" />
-            <ToggleGroup className="py-4" value={level} variant="outline" type="single" onValueChange={(value) => { if (value) setLevel(value) }}>
+            <ToggleGroup value={level} variant="outline" type="single" onValueChange={(value) => { if (value) setLevel(value) }}>
                 <ToggleGroupItem value="Beginner">Beginner</ToggleGroupItem>
                 <ToggleGroupItem value="Intermediate">Intermediate</ToggleGroupItem>
                 <ToggleGroupItem value="Advanced">Advanced</ToggleGroupItem>
             </ToggleGroup>
-            <h3 className="text-accent-foreground text-xl">Chords: </h3>
+            <h3 className="text-accent-foreground text-xl pt-4 p-1">Chords: </h3>
             {chords.map((chord, i) => {
                 return <input key={i} type="hidden" value={chord} name="chords" />
             })}
-            <ToggleGroup className="py-4 flex flex-col text-center" value={chords} variant="outline" type="multiple" onValueChange={(value) => setChords(value)}>
+            <ToggleGroup className="flex flex-col text-center" value={chords} variant="outline" type="multiple" onValueChange={(value) => setChords(value)}>
 
                 <span className="py-2">
                     <h4 className="text-muted-foreground text-sm">Easy</h4>
